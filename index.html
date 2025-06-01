@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>ZENIC</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+    <body>
+        <nav>
+         <a href="#" class="menu">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+        </a>
+
+        <aside class="sidemenu">
+          
+        </aside>
+         
+        <div class="navbtn">
+        <a href="Tokenomics.html" ><button class="navbtn1">Tokenomics</button></a>
+        <a href="https://polygonscan.com/token/0xa89b55a8e05e8dae269b13745599574c31f946cf"><button class="navbtn2">PolyScan</button></a>
+        <a href="Apply.html"><button class="navbtn3">Apply</button></a>
+        <a href="Ecosystem.html"><button class="navbtn4">About</button></a>
+        <a href="Exchange.html"><button class="navbtn5">Buy</button></a>
+        <a href="beadeveloper.html"><button class="navbtn5">Be a Dev</button></a>
+        
+        </div>
+            <img src="small logo.png" class="navbarlogo">
+        </nav>
+        <header>
+            <div class="phrasecatch"><h1 class="headermaintext">Empower Your Business with ZENIC and its DeFi Freedom</h1>
+            <h3 class="headerundertext">Fast, Powerful and Scalable</h3></div>
+            <h4 class="catch">Supporting bussinesses through DeFi, Financing, 24/7 Support and a Democratic Community</h4>
+        </header>
+            
+            <div class="content">
+                <div class="twobuttons">
+                <a href=""><button class="mainbtn">Presale</button></a>
+                  <a href="#grid-container"><button class="secondbtn">More</button></a>
+                </div>
+
+                <div class="socials">
+                    <h3 class="socialstext">Follow us for the latest Updates</h3>
+                    <a href=""><img src="Discord_logo_PNG8.png"  style="width: 5%;" class="discord"></a>
+                    <a href=""><img src="Instagram-Logo-PNG.png" style="width: 5%;" class="instagram"></a>
+                   <a href=""><img src="Tiktok_logo_PNG4.png" style="width: 5%;" class="tiktok"></a>
+                   <a href=""><img src="Telegram_logo_PNG2.png" style="width: 5%;" class="telegram"></a>
+                </div>
+                   
+            </div>
+
+                <div class="abouttoken"> 
+                    <h1 class="header1">The best oppoturnity not just in crypto</h1>  
+                    
+                    <div class="carouseldiv">
+                    
+                    <div class="carousel-container">
+                        <button class="arrow-button left-arrow" onclick="changeSlide(-1)">‹</button>
+                    
+                        <div class="carousel-text-wrapper">
+                          <div class="carousel-text" id="carouselText">Loading...</div>
+                        </div>
+                    
+                        <button class="arrow-button right-arrow" onclick="changeSlide(1)">›</button>
+                    
+                        <div class="dots-container" id="dotsContainer"></div>
+                      </div>
+
+                      <script>
+                        const slides = [
+                          "ZENIC helps businesses use DeFi without the hassle of federal tax.",
+                          "Get 24/7 support from our Devs, AI Chatbot, Groups and people with experience",
+                          "Earn passive income weekly through our 2% transaction tax rewards.",
+                          "Shape the future of ZENIC with community-driven governance.",
+                          "Stay informed through Telegram, Discord, and real-time news."
+                        ];
+                    
+                        let currentSlide = 0;
+                        const textElement = document.getElementById("carouselText");
+                        const dotsContainer = document.getElementById("dotsContainer");
+                    
+                        function renderDots() {
+                          dotsContainer.innerHTML = "";
+                          slides.forEach((_, index) => {
+                            const dot = document.createElement("div");
+                            dot.className = "dot" + (index === currentSlide ? " active" : "");
+                            dot.onclick = () => {
+                              updateSlide(index - currentSlide);
+                              resetAutoSlide();
+                            };
+                            dotsContainer.appendChild(dot);
+                          });
+                        }
+                    
+                        function updateSlide(direction = 1) {
+                          const oldIndex = currentSlide;
+                          currentSlide = (currentSlide + direction + slides.length) % slides.length;
+                          const newSlide = slides[currentSlide];
+                    
+                          textElement.style.opacity = 0;
+                          textElement.style.transform = `translateX(${direction * -100}%)`;
+                    
+                          setTimeout(() => {
+                            textElement.textContent = newSlide;
+                            textElement.style.transition = 'none';
+                            textElement.style.transform = `translateX(${direction * 100}%)`;
+                    
+                            requestAnimationFrame(() => {
+                              requestAnimationFrame(() => {
+                                textElement.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+                                textElement.style.transform = 'translateX(0)';
+                                textElement.style.opacity = 1;
+                              });
+                            });
+                    
+                            renderDots();
+                          }, 500);
+                        }
+                    
+                        function changeSlide(direction) {
+                          updateSlide(direction);
+                          resetAutoSlide();
+                        }
+                    
+                        let autoSlide = setInterval(() => updateSlide(1), 15000);
+                    
+                        function resetAutoSlide() {
+                          clearInterval(autoSlide);
+                          autoSlide = setInterval(() => updateSlide(1), 15000);
+                        }
+                    
+                        // Initial
+                        textElement.textContent = slides[currentSlide];
+                        renderDots();
+                      </script>
+
+                       
+                    </div>
+
+                    <div class="grid-container" id="grid-container">
+                      <div class="grid-item" onclick="location.href='utility.html'">
+                        <h2>Utility</h2>
+                        <p>Explore how ZENIC powers real-world DeFi use cases with tax-optimized tools and AI support.</p>
+                        <a href="utility.html" class="read-more">More</a>
+                      </div>
+                      <div class="grid-item" onclick="location.href='ecosystem.html'">
+                        <h2>Ecosystem</h2>
+                        <p>Learn about the ZENIC ecosystem: community, developer access, governance and more.</p>
+                        <a href="ecosystem.html" class="read-more">More</a>
+                      </div>
+                      <div class="grid-item" onclick="location.href='tokenomics.html'">
+                        <h2>Tokenomics</h2>
+                        <p>Understand our supply breakdown, tax structure and holder rewards model.</p>
+                        <a href="tokenomics.html" class="read-more">More</a>
+                      </div>
+                      <div class="grid-item" onclick="location.href='roadmap.html'">
+                        <h2>Roadmap</h2>
+                        <p>See our project timeline: from presale to launch and everything beyond.</p>
+                        <a href="roadmap.html" class="read-more">More</a>
+                      </div>
+                    </div>
+                        
+                    <div class="hover-container">
+                      <div class="tokenbasicsbase">
+                        <h2 style="font-size: 28px; color: #ffffff;">ZENIC Basics</h2>
+                        <div class="infotoken">
+                        <h3 class="info1">4 Billion</h3>
+                        <p>Total token supply</p>
+                        <h3 class="info2">2% Tax</h3>
+                        <p>For every transaction</p>
+                        <h3 class="info3">Community Governed</h3>
+                        <p>Community decides too assuring meeting needs</p>
+                        
+
+                        </div>
+                      </div>
+                      <div class="tokencontent">
+                        
+                      </div>
+                    </div>
+                    
+
+
+                </div> 
+                <footer class="footer">
+                  <div class="footer-content">
+                    <div class="footer-nav">
+                      <a href="Tokenomics.html">Tokenomics</a>
+                      <a href="https://polygonscan.com/token/0xa89b55a8e05e8dae269b13745599574c31f946cf">PolyScan</a>
+                      <a href="Apply.html">Apply</a>
+                      <a href="Ecosystem.html">About</a>
+                      <a href="Exchange.html">Buy</a>
+                    </div>
+                    <p class="footer-text">&copy; 2025 ZENIC. All rights reserved.</p>
+                    <div class="footer-contact">
+                      <a href="mailto:zenic.crypto@gmail.com">Contact: zenic.crypto@gmail.com</a>
+                    </div>
+                  </div>
+                </footer>
+                
+    </body>
+</html>
